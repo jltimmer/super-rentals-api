@@ -3,8 +3,9 @@ class SerializableRental < JSONAPI::Serializable::Resource
   attribute :title
   attribute :owner
   attribute :city
-  attribute :latitude
-  attribute :longitude
+  attribute :location do
+    {lat: @object.latitude, lng: @object.longitude}
+  end
   attribute :category
   attribute :image
   attribute :bedrooms
